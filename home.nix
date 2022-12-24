@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  # First run this command this 
+  # First run this command this
   # nix-shell '<home-manager>' -A install
 
   nixpkgs.config.allowUnfree = true;
@@ -41,8 +41,8 @@
     initExtra = ''
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
     '';
-
   };
+
   programs.git = {
     enable = true;
     userName = "JacobM";
