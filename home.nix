@@ -13,29 +13,29 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     appimage-run
-    bettercap
     bat
+    bettercap
     curl
     docker
     file
     fzf
     git
-    git-crypt
-    (pkgs.callPackage ../../custom-packages/gyro-package.nix { })
-    (pkgs.callPackage ../../custom-packages/zig-package.nix { })
     htop
     jrnl
     lynx
+    nixfmt
+    openocd
     python3
-    screen
-    vim_configurable
     rnix-lsp
+    screen
     stun
     tig
     tree
+    usbutils
+    vim_configurable
     wol
-    zoom-us
     zls
+    zoom-us
   ];
 
   programs.git = {
