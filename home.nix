@@ -18,6 +18,7 @@
     jrnl
     lynx
     nixfmt
+    nix-prefetch-git
     openocd
     python3
     rnix-lsp
@@ -54,6 +55,18 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
+  };
+
+  home.file = {
+    ".tigrc".text = ''
+      set main-view-id-display = yes
+    '';
+
+    ".vim".source = pkgs.fetchgit {
+      url = "https://github.com/vikingfacer/.vim.git";
+      sha256 = "1x4bdzlbbx09zkyna3ykxbmsrb5y4v63bj8x46vq3kb57f87ckqr";
+      rev = "7964242f7171fd81c408fe2c994c44997c606ca1";
+    };
   };
 
   # This value determines the Home Manager release that your
