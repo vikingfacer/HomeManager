@@ -1,14 +1,8 @@
-{ config, pkgs, ... }:
-{
-  nixpkgs.config.allowUnfree = true;
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "jacob";
-  home.homeDirectory = "/home/jacob";
+{ config, pkgs, ... }: {
+  # First run this command this 
+  # nix-shell '<home-manager>' -A install
 
-  programs.bash.initExtra = "
-     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-  ";
+  nixpkgs.config.allowUnfree = true;
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -38,13 +32,22 @@
     zoom-us
   ];
 
+  # Home Manager needs a bit of information about you and the
+  # paths it should manage.
+  home.username = "jacob";
+  home.homeDirectory = "/home/jacob";
+
+  programs.bash = {
+    initExtra = ''
+      export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    '';
+
+  };
   programs.git = {
-    enable=true;
-    userName="JacobM";
-    userEmail="jacobmontpetit@gmail.com";
-    aliases={
-      st="status";
-    };
+    enable = true;
+    userName = "JacobM";
+    userEmail = "jacobmontpetit@gmail.com";
+    aliases = { st = "status"; };
     extraConfig.core.editor = "vim";
   };
 
@@ -60,6 +63,4 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-
 }
