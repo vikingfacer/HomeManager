@@ -62,11 +62,12 @@
       set main-view-id-display = yes
     '';
 
-    ".vim".source = pkgs.fetchgit {
-      url = "https://github.com/vikingfacer/.vim.git";
-      sha256 = "1x4bdzlbbx09zkyna3ykxbmsrb5y4v63bj8x46vq3kb57f87ckqr";
-      rev = "7964242f7171fd81c408fe2c994c44997c606ca1";
-    };
+    #".vim".source = pkgs.fetchgit {
+    #  url = "https://github.com/vikingfacer/.vim.git";
+    #  sha256 = "084k925j5sdrvbbb4xn778vfgrn42n30iwirzwq9hfwcv6im1sgv";
+    #  rev = "b307698";
+    #  fetchSubmodules = true;
+    #};
   };
 
   # This value determines the Home Manager release that your
