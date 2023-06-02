@@ -2,6 +2,9 @@
   # First run this command this
   # nix-shell '<home-manager>' -A install
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   # Packages that should be installed to the user profile.
@@ -41,6 +44,7 @@
   programs.bash = {
     initExtra = ''
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+      eval "$(direnv hook bash)"
     '';
   };
 
