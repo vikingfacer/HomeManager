@@ -13,6 +13,7 @@
     bat
     bettercap
     curl
+    discord
     docker
     file
     fzf
@@ -20,18 +21,23 @@
     htop
     jrnl
     lynx
-    nixfmt
     nix-prefetch-git
+    nixfmt
+    obs-studio
     openocd
     python3
-    rnix-lsp
     screen
+    silver-searcher
+    stlink
     stun
+    thefuck
     tig
     tree
     usbutils
     vim_configurable
+    vlc
     wol
+    xclip
     zls
     zoom-us
   ];
@@ -62,6 +68,11 @@
   };
 
   home.file = {
+
+    ".config/discord/settings.json".text = ''
+      { "SKIP_HOST_UPDATE": true }
+    '';
+
     ".tigrc".text = ''
       set main-view-id-display = yes
     '';
