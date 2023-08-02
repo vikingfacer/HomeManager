@@ -47,11 +47,20 @@
   home.username = "jacob";
   home.homeDirectory = "/home/jacob";
 
-  programs.bash = {
+  home.sessionVariables = { HF = "/home/jacob/.config/nixpkgs/home.nix"; };
+
+  programs.zsh = {
+    enable = true;
     initExtra = ''
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-      eval "$(direnv hook bash)"
+      eval "$(direnv hook zsh)"
+      eval $(thefuck --alias)
     '';
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "thefuck" ];
+      theme = "afowler";
+    };
   };
 
   programs.git = {
